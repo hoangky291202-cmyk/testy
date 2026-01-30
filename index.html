@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoang Hong Ky | Web Designer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide-react/0.263.1/lucide-react.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap');
+
+        :root {
+            --primary: #2C3E50;
+            --accent: #E74C3C;
+            --bg-light: #ECF0F1;
+            --text-light: #2C3E50;
+            --bg-dark: #1A252F;
+            --text-dark: #ECF0F1;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        .light {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.7)), 
+                        url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="light">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 px-6 py-4 flex justify-between items-center backdrop-blur-md bg-opacity-80 border-b border-gray-200 dark:border-gray-700">
+        <div class="text-2xl font-bold tracking-tighter" style="color: var(--accent);">HHK.</div>
+        
+        <div class="hidden md:flex space-x-8 font-medium">
+            <a href="#hero" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <div class="flex items-center space-x-4">
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <span id="theme-icon-sun" class="hidden">☀️</span>
+                <span id="theme-icon-moon">🌙</span>
+            </button>
+            <button class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-gradient min-h-screen flex items-center justify-center text-white text-center px-4 pt-20">
+        <div class="max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Colors Logic,<br><span style="color: var(--accent);">Designs Magic.</span>
+            </h1>
+            <p class="text-lg md:text-2xl mb-8 font-light max-w-2xl mx-auto opacity-90">
+                JLPT N1の日本語能力と確かなIT技術で、企業の思いを「伝わる」形に。<br>
+                CVR向上に貢献するWEBデザインを提供します。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#about" class="btn-primary px-8 py-4 rounded-full font-bold text-lg">実績を見る</a>
+                <a href="#contact" class="border-2 border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#2C3E50] transition-colors">お問い合わせ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="fade-in">
+            <h2 class="text-sm uppercase tracking-widest text-gray-500 mb-2">Who I am</h2>
+            <div class="h-1 w-12 mb-12" style="background-color: var(--accent);"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center md:justify-start">
+                    <div class="relative">
+                        <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                            <!-- Placeholder image: Casual clean male illustration -->
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b6e3f4" alt="Hoang Hong Ky" class="w-full h-full object-cover bg-gray-100">
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
+                            <p class="text-sm font-bold" style="color: var(--accent);">JLPT N1 Certified</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-bold">はじめまして、WEBデザイナーの<br>Hoang Hong Kyです。</h3>
+                    <p class="text-lg leading-relaxed opacity-80">
+                        栃木県のTBC学院で2年間、WEBデザインを勉強してきました。現在はフリーランスとして東京で活動しています。
+                    </p>
+                    <div class="p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <h4 class="font-bold mb-4 flex items-center">
+                            <span class="mr-2">🌍</span> 強み：多言語対応 & International Design
+                        </h4>
+                        <p class="text-sm opacity-80">
+                            日本語(JLPT:N1)、英語、スペイン語、ヒンズー語、ネパール語など多くの言語に対応可能です。グローバルな視点でのWEBページ作成を得意としています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 bg-gray-50 dark:bg-opacity-5">
+        <div class="max-w-4xl mx-auto fade-in">
+            <h2 class="text-sm uppercase tracking-widest text-gray-500 mb-2 text-center">Get in Touch</h2>
+            <div class="h-1 w-12 mx-auto mb-12" style="background-color: var(--accent);"></div>
+            
+            <div class="text-center mb-12">
+                <p class="text-xl mb-4">制作のご依頼、お見積り、その他のご相談はお気軽にどうぞ。</p>
+                <p class="opacity-70">原則として2営業日以内に返信いたします。</p>
+            </div>
+
+            <form class="space-y-6 bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-sm" onsubmit="event.preventDefault();">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold">お名前</label>
+                        <input type="text" placeholder="山田 太郎" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:ring-2 focus:ring-[#E74C3C]">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold">メールアドレス</label>
+                        <input type="email" placeholder="email@example.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:ring-2 focus:ring-[#E74C3C]">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-bold">お問い合わせ内容</label>
+                    <textarea rows="5" placeholder="ご相談内容をご記入ください" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:ring-2 focus:ring-[#E74C3C]"></textarea>
+                </div>
+                <button type="submit" class="w-full btn-primary text-white py-4 rounded-xl font-bold text-lg">メッセージを送信する</button>
+            </form>
+
+            <div class="mt-12 flex justify-center space-x-8">
+                <a href="#" class="hover:text-[#E74C3C] transition-colors flex items-center space-x-2">
+                    <span>X (Twitter)</span>
+                </a>
+                <a href="#" class="hover:text-[#E74C3C] transition-colors flex items-center space-x-2">
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200 dark:border-gray-800 text-center opacity-60 text-sm">
+        <p>&copy; 2024 Hoang Hong Ky. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Theme Toggle Logic
+        const body = document.body;
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('theme-icon-sun');
+        const moonIcon = document.getElementById('theme-icon-moon');
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light')) {
+                body.classList.replace('light', 'dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                body.classList.replace('dark', 'light');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('shadow-lg', 'py-2');
+                nav.classList.add('py-4');
+            }
+        });
+    </script>
+</body>
+</html>
